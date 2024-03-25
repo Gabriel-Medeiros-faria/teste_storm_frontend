@@ -17,7 +17,7 @@ export default function MovieSearchPage(){
             await moviesBySearchBar(body, setMovies, setLoading)
           }
           myMoviesGetFunction()
-    },[])
+    },[search])
 
     return(
         <>
