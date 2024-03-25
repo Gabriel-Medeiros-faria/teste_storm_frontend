@@ -39,10 +39,8 @@ export default function UserLoginBox({setIsLoggedIn}) {
     // Chamo a função userLoginApi() que está na pasta api para logar o usuário no banco de dados
     // Passo a função login para poder usá-la dentro de userLoginApi()
     // Passo a função navigate para poder usá-la na função userLoginApi() ja que ela não é um componente, não podemos importá-la dentro da função
-    await userLoginApi(body, setErro, login, navigate)
-
-    // Atualizo o estado para para true quando o usuário logar e o header aparecer na página do usuário
-    setIsLoggedIn(true)
+    // Atualizo o estado setIsLoggedIn para para true quando o usuário logar e o header aparecer na página do usuário
+    await userLoginApi(body, setErro, login, navigate, setIsLoggedIn)
     
   }
 
@@ -85,6 +83,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 50px;
   justify-content: center;
   width: 400px;
   height: 500px;

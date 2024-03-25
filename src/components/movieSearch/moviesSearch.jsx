@@ -1,27 +1,13 @@
-
-import { useEffect } from "react";
-import { MdLocalMovies } from "react-icons/md";
 import styled from "styled-components";
-import moviesGet from "../../api/moviesGet-api";
-import { useNavigate } from "react-router-dom";
+import { MdLocalMovies } from "react-icons/md";
 
-export default function RecommendedMovies({setMovies, movies}) {
-  const shuffledMovies = movies.sort(() => Math.random() - 0.5);
-  const navigate = useNavigate()
-
-  useEffect(()=> {
-    async function myMoviesGetFunction(){
-      await moviesGet(setMovies)
-    }
-    myMoviesGetFunction()
-  },[])
-
-  return (
-    <>
-      <Container>
-        <p className="titleSetion">Nossos Filmes Para Você!</p>
+export default function MoviesSearch({movies}){
+    return(
+        <>
+        <Container>
+        <p className="titleSetion">Filmes Econtrados!</p>
         <div className="movies">
-          {shuffledMovies.map((movie)=> (
+          {movies.map((movie)=> (
             <div className="movie" onClick={()=> navigate(`/movie/${movie.id}`)}>
             <img src={movie.imagePoster}></img>
             <div className="infosMovie">
@@ -34,8 +20,8 @@ export default function RecommendedMovies({setMovies, movies}) {
           ))}
         </div>
       </Container>
-    </>
-  );
+        </>
+    )
 }
 
 const Container = styled.div`

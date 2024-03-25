@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import logo from "../../assets/logo.jpeg";
-import SearchBar from "./searchBar";
 import { RxHamburgerMenu } from "react-icons/rx";
 import {
   Box,
@@ -11,79 +10,106 @@ import {
   ListItemText,
 } from "@mui/material";
 import Drawer from "@mui/material/Drawer";
-import Divider from '@mui/material/Divider';
+import Divider from "@mui/material/Divider";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CiLogout } from "react-icons/ci";
 import { IoMdPersonAdd } from "react-icons/io";
 import { MdOutlineAdd } from "react-icons/md";
 import { FaUserCog } from "react-icons/fa";
+import { IoSearchSharp } from "react-icons/io5";
 
-export default function Header({setIsLoggedIn}) {
+export default function Header({ setIsLoggedIn }) {
   const [openSide, setOpenSide] = useState();
-  const navigate = useNavigate()
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
 
   const toggleDrawer = (newOpen) => () => {
     setOpenSide(newOpen);
   };
 
-  function logout(){
-    localStorage.clear()
+  const handleChange = async (event) => {
+    const { value } = event.target;
+    setSearch(value);
+  };
 
-    // Atualizo o estado para false quando o usuário não estiver logado para o header não aparecer na página
-    setIsLoggedIn(false)
-    navigate("/userLogin")
+  function searchMovies(){
+    if(search !== ''){
+      navigate(`/movieSearch/${search}`)
+    }
   }
+
+  function logout() {
+    localStorage.clear();
+    // Atualizo o estado para false quando o usuário não estiver logado para o header não aparecer na página
+    setIsLoggedIn(false);
+    navigate("/userLogin");
+  }
+
   return (
     <>
       <Container>
-        <img src={logo} onClick={()=> navigate('/')}></img>
-        <SearchBar />
+        <img src={logo} onClick={() => navigate("/")}></img>
+        <div className="search">
+          <form>
+          <input
+            type="text"
+            value={search}
+            onChange={handleChange}
+            placeholder="Pesquisar por filme..."
+          />
+          <IoSearchSharp className="searchIcon" onClick={()=> searchMovies()}/>
+          </form>
+        </div>
         <div>
-        <Drawer open={openSide} onClose={toggleDrawer(false)} anchor="right">
-          <Box
-            sx={{ width: 250 }}
-            role="presentation"
-            onClick={toggleDrawer(false)}
-          >
-            <List>
+          <Drawer open={openSide} onClose={toggleDrawer(false)} anchor="right">
+            <Box
+              sx={{ width: 250 }}
+              role="presentation"
+              onClick={toggleDrawer(false)}
+            >
+              <List>
                 <ListItem disablePadding>
-                  <ListItemButton onClick={()=> navigate('/configUser')}>
+                  <ListItemButton onClick={() => navigate("/configUser")}>
                     <ListItemIcon>
                       <FaUserCog size={25} />
                     </ListItemIcon>
-                    <ListItemText primary={'Configurações de usuário'} />
+                    <ListItemText primary={"Configurações de usuário"} />
                   </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>
-                  <ListItemButton onClick={()=> navigate('/userRegistration')}>
+                  <ListItemButton onClick={() => navigate("/userRegistration")}>
                     <ListItemIcon>
                       <IoMdPersonAdd size={25} />
                     </ListItemIcon>
-                    <ListItemText primary={'Cadastrar novo usuário'} />
+                    <ListItemText primary={"Cadastrar novo usuário"} />
                   </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>
-                  <ListItemButton onClick={()=> navigate('/movieRegister')}>
+                  <ListItemButton onClick={() => navigate("/movieRegister")}>
                     <ListItemIcon>
                       <MdOutlineAdd size={25} />
                     </ListItemIcon>
-                    <ListItemText primary={'Cadastrar novo filme'} />
+                    <ListItemText primary={"Cadastrar novo filme"} />
                   </ListItemButton>
                 </ListItem>
-                <Divider/>
+                <Divider />
                 <ListItem disablePadding>
-                  <ListItemButton onClick={()=> logout()}>
+                  <ListItemButton onClick={() => logout()}>
                     <ListItemIcon>
                       <CiLogout size={25} />
                     </ListItemIcon>
-                    <ListItemText primary={'Sair'} />
+                    <ListItemText primary={"Sair"} />
                   </ListItemButton>
                 </ListItem>
-            </List>
-          </Box>
-        </Drawer>
-          <RxHamburgerMenu size={26} onClick={() => setOpenSide(!openSide)} className="menu"/>
+              </List>
+            </Box>
+          </Drawer>
+          <RxHamburgerMenu
+            size={26}
+            onClick={() => setOpenSide(!openSide)}
+            className="menu"
+          />
         </div>
       </Container>
     </>
@@ -100,7 +126,23 @@ const Container = styled.div`
   padding: 0 150px;
   background-color: #161616;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  .menu{
+  .search {
+    position: relative;
+    .searchIcon {
+      position: absolute;
+      right: 10px;
+      font-size: 25px;
+      top: 10px;
+      color: black;
+    }
+  }
+  input {
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    width: 400px;
+  }
+  .menu {
     cursor: pointer;
   }
   img {

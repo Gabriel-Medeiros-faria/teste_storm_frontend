@@ -11,10 +11,10 @@ export default async function movieRegisterApi(body, setErro, setPositiveRequest
     .post("http://localhost:8080/movieRegistration", body, config)
     .then(() => {
       setErro("");
-      setInputs({})
       setPositiveRequest("Filme criado com sucesso")
     })
     .catch((err) => {
+      console.log(err)
       setPositiveRequest("")
       setErro(err.response.data.name);
     });

@@ -1,29 +1,13 @@
-import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
-export default function ImageCarousel({ movies }) {
+export default function RightCarousel({ movies }) {
   const shuffledMovies = movies.sort(() => Math.random() - 0.5);
-  const selectedMovies = shuffledMovies.slice(0, 4);
+  const selectedMovies = shuffledMovies.slice(0, 3);
   const navigate = useNavigate()
-  //Configurações do carrossel
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-  };
-
-  //Renderização do carrossel
   return (
-    <Container>
-      <Slider {...settings}>
+    <>
+      <Container>
         {selectedMovies.map((movie) => (
           <div className="itemCarousel" onClick={()=> navigate(`/movie/${movie.id}`)}>
             <img src={movie.imagePoster} alt="Image 1" />
@@ -33,34 +17,37 @@ export default function ImageCarousel({ movies }) {
             </div>
           </div>
         ))}
-      </Slider>
-    </Container>
+      </Container>
+    </>
   );
 }
 
 const Container = styled.div`
-  width: 400px;
-  margin-right: 50px;
-  .slick-slide img {
-    width: 400px;
-    height: 550px;
+  img {
+    width: 115px;
+    height: 175px;
   }
 
   .itemCarousel {
     position: relative;
-    cursor: pointer;
+    margin-bottom: 10px;
+
     .carousel-caption {
       box-sizing: border-box;
       padding: 10px; /* Adicionei padding para afastar o texto das bordas */
       h3 {
-        font-size: 20px;
+        font-size: 15px;
         margin: 0; /* Removi margens para garantir que o texto esteja alinhado corretamente */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
       p {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap; /* Impede que o texto quebre em várias linhas */
         margin: 0; /* Removi margens para garantir que o texto esteja alinhado corretamente */
+        font-size: 14px;
       }
       position: absolute;
       width: 100%; /* Defini a largura para ocupar toda a largura do componente pai */

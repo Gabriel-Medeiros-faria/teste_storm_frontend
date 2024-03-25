@@ -64,7 +64,7 @@ export default function ConfigUserBox({setIsLoggedIn}) {
           <button >Atualizar usuário</button>
           {erro && <p style={{ color: "red", marginTop: "10px", textAlign: "center" }}>{erro}</p>}
         </form>
-          <DeleteUserModalButton/>
+          <DeleteUserModalButton setIsLoggedIn={setIsLoggedIn}/>
       </Container>
     </>
   );

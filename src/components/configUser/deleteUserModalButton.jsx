@@ -6,16 +6,16 @@ import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import userDeleteApi from "../../api/userDelete-api";
 
-export default function DeleteUserModalButton() {
+export default function DeleteUserModalButton({setIsLoggedIn}) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const navigate = useNavigate();
 
-  function deleteUser() {
-    alert("Usuário excluído com sucesso");
-    navigate("/userLogin");
+  async function deleteUser() {
+    await userDeleteApi(navigate, setIsLoggedIn)
   }
 
   // Contrução do Modal e o botão que ativa o Modal

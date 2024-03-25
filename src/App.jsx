@@ -10,6 +10,7 @@ import AuthProvider from "./context/authContext";
 import { useState } from "react";
 import MovieRegisterPage from "./pages/movieRegister/movieRegisterPage";
 import ConfigUserPage from "./pages/configUser/configUserPage";
+import MovieSearchPage from "./pages/movieSearch/movieSearchPage";
 
 function App() {
   // Estado para verificar se o usuário está logado e renderizar o header
@@ -43,6 +44,7 @@ function App() {
             <Route path="/" element={<PrivateRoute element={<HomePage />} />} />
             <Route path="/movie/:id" element={<PrivateRoute element={<MoviePage />} />} />
             <Route path="/movieRegister" element={<PrivateRoute element={<MovieRegisterPage />} />} />
+            <Route path="/movieSearch/:search" element={<PrivateRoute element={<MovieSearchPage />} />} />
             <Route path="/configUser" element={<PrivateRoute element={<ConfigUserPage setIsLoggedIn={setIsLoggedIn}/>} />} />
             <Route
               path="/userRegistration"
