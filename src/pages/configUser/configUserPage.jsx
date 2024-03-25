@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import ConfigUserBox from "../../components/configUser/configUserBox";
 
-export default function ConfigUserPage() {
+export default function ConfigUserPage({setIsLoggedIn}) {
   return (
     <>
       <Container>
-        <ConfigUserBox />
+        <ConfigUserBox setIsLoggedIn={setIsLoggedIn}/>
       </Container>
     </>
   );

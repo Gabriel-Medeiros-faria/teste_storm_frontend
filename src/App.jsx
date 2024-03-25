@@ -43,7 +43,7 @@ function App() {
             <Route path="/" element={<PrivateRoute element={<HomePage />} />} />
             <Route path="/movie/:id" element={<PrivateRoute element={<MoviePage />} />} />
             <Route path="/movieRegister" element={<PrivateRoute element={<MovieRegisterPage />} />} />
-            <Route path="/configUser" element={<PrivateRoute element={<ConfigUserPage />} />} />
+            <Route path="/configUser" element={<PrivateRoute element={<ConfigUserPage setIsLoggedIn={setIsLoggedIn}/>} />} />
             <Route
               path="/userRegistration"
               element={<UserRegistrationPage />}

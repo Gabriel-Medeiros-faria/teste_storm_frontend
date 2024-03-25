@@ -6,7 +6,7 @@ import DeleteUserModalButton from "./deleteUserModalButton";
 import userUpdateApi from "../../api/userUpdate-api";
 import { useNavigate } from "react-router-dom";
 
-export default function ConfigUserBox() {
+export default function ConfigUserBox({setIsLoggedIn}) {
   const [inputs, setInputs] = useState({});
   const [erro, setErro] = useState('')
   const navigate = useNavigate()
@@ -25,7 +25,7 @@ export default function ConfigUserBox() {
             password: inputs.password
         }
         
-        await userUpdateApi(body, setErro, navigate)
+        await userUpdateApi(body, setErro, navigate, setIsLoggedIn)
     }else{
         setErro("Escreva ao menos um campo para atualizar!")
     }

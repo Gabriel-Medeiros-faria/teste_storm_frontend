@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default async function userUpdateApi(body, setErro, navigate) {
+export default async function userUpdateApi(body, setErro, navigate, setIsLoggedIn) {
 
   const config = {
     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
@@ -12,6 +12,7 @@ console.log(body)
     .then(() => {
       setErro("");
       localStorage.clear()
+      setIsLoggedIn(false)
       navigate("/");
     })
     .catch((err) => {
