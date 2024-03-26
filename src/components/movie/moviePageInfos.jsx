@@ -20,7 +20,7 @@ export default function MoviePageInfos({ movie }) {
       return sum + avaliation.assessment;
     }, 0);
 
-    // Calculate the average
+    // Calcula a media
     const average = sumOfAssessments / movie.Avaliations.length;
     setTotalAvaliations(movie.Avaliations.length)
     setAverage(average);
@@ -41,6 +41,9 @@ export default function MoviePageInfos({ movie }) {
           </div>
         </div>
         <div>
+          <p>Ator: {movie.ActorMovie.map((a)=> (
+            <span>{a.Actor.name}</span>
+          ))}</p>
           <p>Diretor: {movie.director}</p>
           <p>Gênero: {movie.gender}</p>
           <p>Ano de lançamento: {movie.yearLaunch}</p>
@@ -56,6 +59,11 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: start;
   margin-left: 20px;
+  p{
+    span{
+        margin: 5px;
+    }
+  }
   .avaliationMovie {
     display: flex;
     flex-direction: column;

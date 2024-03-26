@@ -1,8 +1,64 @@
-# React + Vite
+# Frontend React.js Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto frontend desenvolvido em React.js.
 
-Currently, two official plugins are available:
+## Pré-requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Antes de começar, certifique-se de ter instalado o seguinte:
+
+- Node.js
+- npm (Node Package Manager) ou yarn
+
+## Instalação
+
+Para instalar este projeto, siga estas etapas:
+
+1. Clone este repositório executando o seguinte comando no terminal:
+
+   ```sh
+   git clone https://github.com/seu-usuario/seu-projeto.git
+   ```
+
+2. Navegue até o diretório do projeto:
+
+   ```sh
+   cd seu-projeto
+   ```
+
+3. Instale as dependências do projeto usando npm ou yarn:
+
+   ```sh
+   npm install
+   # ou
+   yarn install
+   ```
+
+## Como Executar
+
+Após a instalação das dependências, você pode executar o projeto com o seguinte comando:
+
+```sh
+npm run dev
+# ou
+yarn dev
+```
+
+Este comando iniciará o servidor de desenvolvimento. Depois de iniciado, você poderá visualizar o aplicativo em seu navegador acessando o seguinte endereço:
+
+```
+http://localhost:3000
+```
+
+## Contribuição
+
+Se você quiser contribuir com este projeto, siga as etapas abaixo:
+
+1. Faça um fork do repositório
+2. Crie uma nova branch para sua feature (`git checkout -b feature/sua-feature`)
+3. Faça commit das suas alterações (`git commit -am 'Adicionando uma nova feature'`)
+4. Envie para a branch principal (`git push origin feature/sua-feature`)
+5. Crie um novo Pull Request
+
+## Licença
+
+Este projeto é licenciado sob a [MIT License](LICENSE).

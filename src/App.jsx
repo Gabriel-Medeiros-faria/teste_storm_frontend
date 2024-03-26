@@ -4,7 +4,6 @@ import Header from "./components/header/Header";
 import HomePage from "./pages/home/homePage";
 import MoviePage from "./pages/movie/moviePage";
 import UserRegistrationPage from "./pages/userRegistration/userRegistrationPage";
-import Footer from "./components/footer/footer";
 import UserLoginPage from "./pages/userLogin/userLoginPage";
 import AuthProvider from "./context/authContext";
 import { useState } from "react";
@@ -53,7 +52,6 @@ function App() {
             <Route path="/userLogin" element={<UserLoginPage setIsLoggedIn={setIsLoggedIn}/>} />
           </Routes>
         </AuthProvider>
-        <Footer />
       </BrowserRouter>
     </>
   );

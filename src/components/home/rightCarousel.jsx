@@ -31,6 +31,7 @@ const Container = styled.div`
   .itemCarousel {
     position: relative;
     margin-bottom: 10px;
+    cursor: pointer;
 
     .carousel-caption {
       box-sizing: border-box;

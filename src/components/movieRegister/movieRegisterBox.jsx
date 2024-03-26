@@ -9,6 +9,7 @@ export default function MovieRegisterBox() {
   const [erro, setErro] = useState("");
   const [positiveRequest, setPositiveRequest] = useState("");
   const [imageString, setImageString] = useState("");
+  const [actors, setActors] = useState([]);
 
   // Função para tranformar a imagem passada em string
   const handleImageUpload = (event) => {
@@ -26,6 +27,13 @@ export default function MovieRegisterBox() {
     }
   };
 
+  const handleAddActor = () => {
+    if (inputs.actor) {
+      setActors([...actors, inputs.actor]);
+      setInputs({ ...inputs, actor: "" }); // Limpa o campo de entrada após adicionar o ator
+    }
+  };
+
   const handleInputChange = (event) => {
     setInputs({ ...inputs, [event.target.name]: event.target.value });
   };
@@ -33,19 +41,24 @@ export default function MovieRegisterBox() {
   async function registerMovie(e) {
     e.preventDefault();
 
-    const body = {
-      userId: useUser().userId,
-      title: inputs.title,
-      description: inputs.description,
-      director: inputs.director,
-      gender: inputs.gender,
-      yearLaunch: Number(inputs.yearLaunch),
-      imagePoster: imageString,
-    };
+    if(actors.length > 0){
+      const body = {
+        userId: useUser().userId,
+        title: inputs.title,
+        description: inputs.description,
+        director: inputs.director,
+        gender: inputs.gender,
+        yearLaunch: Number(inputs.yearLaunch),
+        imagePoster: imageString,
+        actors: actors
+      };
+  
+      // Chamo a função movieRegisterApi() que está na pasta api para criar o filme no banco de dados
+      // Passo os states setErro e setPositiveRequest para atualizar a mensagem que aparecerá para o usuário
+      await movieRegisterApi(body, setErro, setPositiveRequest);
+    }else{setErro('Digite pelo menos um ator!')}
 
-    // Chamo a função movieRegisterApi() que está na pasta api para criar o filme no banco de dados
-    // Passo os states setErro e setPositiveRequest para atualizar a mensagem que aparecerá para o usuário
-    await movieRegisterApi(body, setErro, setPositiveRequest);
+    
   }
 
   return (
@@ -82,6 +95,22 @@ export default function MovieRegisterBox() {
               onChange={handleInputChange}
               name="director"
             ></input>
+            <label>
+              Ator ou atores<span>*</span>
+            </label>
+            <div className="addActorInput">
+            <input
+                value={inputs.actor}
+                onChange={handleInputChange}
+                name="actor"
+              ></input>
+            <button type="button" onClick={handleAddActor} className="addActor">+</button>
+            <div className="actors">
+            {actors.map((actor, index) => (
+              <div key={index} >{actor}</div> // Renderiza os atores abaixo do campo de entrada
+            ))}
+            </div>
+            </div>
             <label>
               Gênero<span>*</span>
             </label>
@@ -137,6 +166,22 @@ const Container = styled.div`
   padding: 15px;
   width: 400px;
   height: auto;
+  .addActorInput{
+    position: relative;
+    .actors{
+      display: flex;
+      div{
+        padding: 0 5px;
+        border-right: solid 1px white;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .addActor{
+    position: absolute;
+    right: 0;
+    border-radius: 0;
+  }
   img {
     width: 150px;
     border-radius: 10px;
