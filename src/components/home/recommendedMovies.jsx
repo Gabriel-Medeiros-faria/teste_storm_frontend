@@ -23,7 +23,7 @@ export default function RecommendedMovies({setMovies, movies}) {
         <div className="movies">
           {shuffledMovies.map((movie)=> (
             <div className="movie" onClick={()=> navigate(`/movie/${movie.id}`)}>
-            <img src={movie.imagePoster}></img>
+            <img src={movie.imagePoster} alt={`Poster do filme ${movie.title}`}></img>
             <div className="infosMovie">
               <p className="title">{movie.title}</p>
               <div className="knowMore">

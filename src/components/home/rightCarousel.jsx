@@ -9,8 +9,8 @@ export default function RightCarousel({ movies }) {
     <>
       <Container>
         {selectedMovies.map((movie) => (
-          <div className="itemCarousel" onClick={()=> navigate(`/movie/${movie.id}`)}>
-            <img src={movie.imagePoster} alt="Image 1" />
+          <div className="itemCarousel" onClick={()=> navigate(`/movie/${movie.id}`)} data-testid={`movie-image-${movie.id}`}>
+            <img src={movie.imagePoster} alt={`Poster do filme ${movie.title}`} />
             <div className="carousel-caption">
               <h3>{movie.title}</h3>
               <p>{movie.description}</p>

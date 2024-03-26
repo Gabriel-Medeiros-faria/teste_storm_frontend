@@ -26,7 +26,7 @@ export default function ImageCarousel({ movies }) {
       <Slider {...settings}>
         {selectedMovies.map((movie) => (
           <div className="itemCarousel" onClick={()=> navigate(`/movie/${movie.id}`)}>
-            <img src={movie.imagePoster} alt="Image 1" />
+            <img src={movie.imagePoster} alt={`Image ${movie.id}`} />
             <div className="carousel-caption">
               <h3>{movie.title}</h3>
               <p>{movie.description}</p>

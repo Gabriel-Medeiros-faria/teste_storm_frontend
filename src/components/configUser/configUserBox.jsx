@@ -24,7 +24,6 @@ export default function ConfigUserBox({setIsLoggedIn}) {
             email: inputs.email,
             password: inputs.password
         }
-        
         await userUpdateApi(body, setErro, navigate, setIsLoggedIn)
     }else{
         setErro("Escreva ao menos um campo para atualizar!")

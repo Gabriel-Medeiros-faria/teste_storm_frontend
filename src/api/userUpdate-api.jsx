@@ -5,7 +5,7 @@ export default async function userUpdateApi(body, setErro, navigate, setIsLogged
   const config = {
     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
   };
-console.log(body)
+console.log(token)
   // Utilizo a biblioteca axios para fazer a requisição put para atualizar o usuário
   axios
     .put("http://localhost:8080/userRegistration", body, config)
