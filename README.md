@@ -16,7 +16,7 @@ Para instalar este projeto, siga estas etapas:
 1. Clone este repositório executando o seguinte comando no terminal:
 
    ```sh
-   git clone https://github.com/seu-usuario/seu-projeto.git
+   git clone https://github.com/Gabriel-Medeiros-faria/teste_storm_frontend.git
    ```
 
 2. Navegue até o diretório do projeto:
@@ -49,15 +49,24 @@ Este comando iniciará o servidor de desenvolvimento. Depois de iniciado, você 
 http://localhost:3000
 ```
 
-## Contribuição
+## Como Executar
 
-Se você quiser contribuir com este projeto, siga as etapas abaixo:
+Para executar os testes, você pode usar o seguinte comando:
 
-1. Faça um fork do repositório
-2. Crie uma nova branch para sua feature (`git checkout -b feature/sua-feature`)
-3. Faça commit das suas alterações (`git commit -am 'Adicionando uma nova feature'`)
-4. Envie para a branch principal (`git push origin feature/sua-feature`)
-5. Crie um novo Pull Request
+```sh
+npm test
+# ou
+yarn test
+```
+
+## Tecnologias Utilizadas
+
+Este projeto utiliza várias tecnologias chave:
+
+- **React.js**: Uma biblioteca JavaScript para construir interfaces de usuário.
+- **Styled-components**: Uma biblioteca que permite que você use estilos ao nível de componente na sua aplicação. Ele usa tagged template literals para estilizar seus componentes e remove o mapeamento entre componentes e estilos. Isso ajuda a manter os estilos mais previsíveis e mais fáceis de gerenciar à medida que sua aplicação cresce.
+- **Material-UI**: Uma biblioteca popular de componentes de UI para React. Ele implementa o Google Material Design e fornece uma maneira rápida e fácil de criar componentes de UI atraentes. Isso ajuda a manter a consistência em sua interface do usuário e a acelerar o processo de desenvolvimento.
+- **Axios**: Um cliente HTTP baseado em promessa para o navegador e node.js. Ele oferece uma maneira fácil de enviar solicitações HTTP assíncronas e pode ser usado em uma ampla gama de navegadores. Isso facilita a interação com APIs RESTful e a manipulação de respostas.
 
 ## Licença
 
