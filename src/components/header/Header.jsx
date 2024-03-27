@@ -29,11 +29,13 @@ export default function Header({ setIsLoggedIn }) {
   };
 
   const handleChange = async (event) => {
+    event.preventDefault();
     const { value } = event.target;
     setSearch(value);
   };
 
-  function searchMovies(){
+  function searchMovies(e){
+    e.preventDefault();
     if(search !== ''){
       navigate(`/movieSearch/${search}`)
     }
@@ -51,14 +53,14 @@ export default function Header({ setIsLoggedIn }) {
       <Container>
         <img src={logo} onClick={() => navigate("/")}></img>
         <div className="search">
-          <form>
+          <form onSubmit={searchMovies}>
           <input
             type="text"
             value={search}
             onChange={handleChange}
             placeholder="Pesquisar por filme..."
           />
-          <IoSearchSharp className="searchIcon" onClick={()=> searchMovies()}/>
+          <IoSearchSharp className="searchIcon" type="submit"/>
           </form>
         </div>
         <div>
@@ -134,6 +136,7 @@ const Container = styled.div`
       font-size: 25px;
       top: 10px;
       color: black;
+      cursor: pointer;
     }
   }
   input {

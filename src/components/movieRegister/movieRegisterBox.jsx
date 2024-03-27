@@ -55,7 +55,8 @@ export default function MovieRegisterBox() {
   
       // Chamo a função movieRegisterApi() que está na pasta api para criar o filme no banco de dados
       // Passo os states setErro e setPositiveRequest para atualizar a mensagem que aparecerá para o usuário
-      await movieRegisterApi(body, setErro, setPositiveRequest);
+      // Passo os states setInputs e setActors para poder limpar os campos depois da requisição
+      await movieRegisterApi(body, setErro, setPositiveRequest, setInputs, setActors);
     }else{setErro('Digite pelo menos um ator!')}
 
     
@@ -67,41 +68,45 @@ export default function MovieRegisterBox() {
         <img src={logo}></img>
         <form onSubmit={registerMovie}>
           <Inputs>
-            <label>
+            <label htmlFor="title">
               Título do filme<span>*</span>
             </label>
             <input
               required
               onChange={handleInputChange}
               value={inputs.title}
+              id="title"
               name="title"
               type="text"
             ></input>
-            <label>
+            <label htmlFor="description">
               Descrição<span>*</span>
             </label>
             <input
               required
               value={inputs.description}
               onChange={handleInputChange}
+              id="description"
               name="description"
             ></input>
-            <label>
+            <label htmlFor="director">
               Diretor<span>*</span>
             </label>
             <input
               required
               value={inputs.director}
               onChange={handleInputChange}
+              id="director"
               name="director"
             ></input>
-            <label>
+            <label htmlFor="actor">
               Ator ou atores<span>*</span>
             </label>
             <div className="addActorInput">
             <input
                 value={inputs.actor}
                 onChange={handleInputChange}
+                id="actor"
                 name="actor"
               ></input>
             <button type="button" onClick={handleAddActor} className="addActor">+</button>
@@ -111,27 +116,29 @@ export default function MovieRegisterBox() {
             ))}
             </div>
             </div>
-            <label>
+            <label htmlFor="gender">
               Gênero<span>*</span>
             </label>
-            <input required onChange={handleInputChange} name="gender" value={inputs.gender}></input>
-            <label>
+            <input required onChange={handleInputChange} name="gender" value={inputs.gender} id="gender"></input>
+            <label htmlFor="yearLaunch">
               Ano de lançamento<span>*</span>
             </label>
             <input
               required
               onChange={handleInputChange}
               name="yearLaunch"
+              id="yearLaunch"
               type="number"
               value={inputs.yearLaunch}
             ></input>
-            <label>
+            <label htmlFor="imagePoster">
               Imagem do pôster<span>*</span>
             </label>
             <input
               type="file"
               onChange={handleImageUpload}
               className="imageFile"
+              id="imagePoster"
               placeholder="Escolha a imagem do filme"
               required
             />

@@ -22,6 +22,7 @@ export default function ModalAvaliationMovie({ movieId }) {
   };
 
   async function assess() {
+    // Verifico se a avaliação do filme é diferente de 0 para o usuário poder avaliar
     if (rating !== 0) {
       const body = {
         userId: useUser().userId,

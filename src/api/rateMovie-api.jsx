@@ -11,7 +11,6 @@ export default async function rateMovieApi(body, setErro, setPositiveRequest) {
     .then((resp) => {
       setPositiveRequest("Avaliado com sucesso!");
       setErro("");
-      console.log(resp.data);
     })
     .catch((err) => {
       setPositiveRequest("");

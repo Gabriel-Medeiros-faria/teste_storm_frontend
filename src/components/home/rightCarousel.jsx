@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export default function RightCarousel({ movies }) {
+
+  // Atualizo de forma aleatória os filmes e limito a renderização em 3 filmes
   const shuffledMovies = movies.sort(() => Math.random() - 0.5);
   const selectedMovies = shuffledMovies.slice(0, 3);
   const navigate = useNavigate()

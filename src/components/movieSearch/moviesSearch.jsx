@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 export default function MoviesSearch({movies}){
 
   const navigate = useNavigate()
+
+  // Componente que renderiza os filmes encontrados
     return(
         <>
         <Container>

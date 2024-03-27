@@ -10,6 +10,7 @@ export default function MovieSearchPage(){
     const [movies, setMovies] = useState()
 
     useEffect(()=>{
+        // Faço a pesquisa do filme colocando o que foi pesquisado no body da requisição 
         async function myMoviesGetFunction(){
             const body = {
                 search

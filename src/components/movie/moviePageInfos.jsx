@@ -16,7 +16,6 @@ export default function MoviePageInfos({ movie }) {
 
     // Soma todas as avaliações
     const sumOfAssessments = movie.Avaliations.reduce((sum, avaliation) => {
-      console.log("Adicionando avaliação:", movie.Avaliations.assessment);
       return sum + avaliation.assessment;
     }, 0);
 
@@ -41,9 +40,9 @@ export default function MoviePageInfos({ movie }) {
           </div>
         </div>
         <div>
-          <p>Ator: {movie.ActorMovie.map((a)=> (
+          {movie.ActorMovie.length !== 0 ? <p>Ator: {movie.ActorMovie.map((a)=> (
             <span>{a.Actor.name}</span>
-          ))}</p>
+          ))}</p> : ""}
           <p>Diretor: {movie.director}</p>
           <p>Gênero: {movie.gender}</p>
           <p>Ano de lançamento: {movie.yearLaunch}</p>

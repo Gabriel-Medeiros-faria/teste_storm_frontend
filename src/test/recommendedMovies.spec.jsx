@@ -1,7 +1,6 @@
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import RecommendedMovies from '../components/home/recommendedMovies';
-import { createMemoryHistory } from 'history';
+import RecommendedMovies from '../components/home/recommendedMovies';;
 
 describe('RecommendedMovies', () => {
   const movies = [

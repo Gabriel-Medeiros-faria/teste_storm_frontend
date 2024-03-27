@@ -1,16 +1,10 @@
-import styled from "styled-components"
 
 export default function MoviePageImage({movieImage}){
     
     return(
         <>
-            <Container>
-                <img src={movieImage.imagePoster}></img>
-            </Container>
+            <img src={movieImage.imagePoster}></img>
         </>
     )
 }
 
-const Container = styled.div`
-
-`

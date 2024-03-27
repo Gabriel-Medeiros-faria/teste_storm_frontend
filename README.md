@@ -46,7 +46,7 @@ yarn dev
 Este comando iniciará o servidor de desenvolvimento. Depois de iniciado, você poderá visualizar o aplicativo em seu navegador acessando o seguinte endereço:
 
 ```
-http://localhost:3000
+http://localhost:5173
 ```
 
 ## Como Executar
@@ -61,7 +61,7 @@ yarn test
 
 ## Tecnologias Utilizadas
 
-Este projeto utiliza várias tecnologias chave:
+Este projeto utiliza várias tecnologias chave: 
 
 - **React.js**: Uma biblioteca JavaScript para construir interfaces de usuário.
 - **Styled-components**: Uma biblioteca que permite que você use estilos ao nível de componente na sua aplicação. Ele usa tagged template literals para estilizar seus componentes e remove o mapeamento entre componentes e estilos. Isso ajuda a manter os estilos mais previsíveis e mais fáceis de gerenciar à medida que sua aplicação cresce.
