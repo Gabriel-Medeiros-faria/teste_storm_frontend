@@ -28,7 +28,6 @@ export default async function movieRegisterApi(
       setPositiveRequest("Filme criado com sucesso");
     })
     .catch((err) => {
-      console.log(err);
       setPositiveRequest("");
       setErro(err.response.data.name);
     });

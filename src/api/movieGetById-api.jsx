@@ -14,7 +14,6 @@ export default async function movieGetById(id, setMovie, setLoading) {
     setLoading(false)
     })
     .catch((err) => {
-        console.log(err)
         setLoading(false)
     });
 }

@@ -19,7 +19,6 @@ export default async function userDeleteApi(navigate, setIsLoggedIn) {
       navigate("/userLogin");
     })
     .catch((err) => {
-      console.log(err);
       alert(err.response.data.name);
     });
 }

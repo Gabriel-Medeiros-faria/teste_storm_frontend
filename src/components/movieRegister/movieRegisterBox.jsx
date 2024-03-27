@@ -17,7 +17,7 @@ export default function MovieRegisterBox() {
     const reader = new FileReader();
 
     reader.onloadend = () => {
-      // Quando a leitura estiver completa, atualize o estado com a string da imagem
+      // Quando a leitura estiver completa, atualizo o estado com a string da imagem
       setImageString(reader.result);
     };
 

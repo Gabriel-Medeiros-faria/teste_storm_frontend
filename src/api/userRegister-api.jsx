@@ -16,7 +16,6 @@ export default async function userRegisterApi(body, setErro, navigate, setPositi
     })
     .catch((err) => {
       setPositiveRequest("")
-      console.log(err)
       setErro(err.response.data.name);
     });
 }

@@ -9,6 +9,8 @@ export default function RecommendedMovies({setMovies, movies}) {
   const shuffledMovies = movies.sort(() => Math.random() - 0.5);
   const navigate = useNavigate()
 
+
+  // Busco todos os filmes quando a página é renderizada
   useEffect(()=> {
     async function myMoviesGetFunction(){
       await moviesGet(setMovies)

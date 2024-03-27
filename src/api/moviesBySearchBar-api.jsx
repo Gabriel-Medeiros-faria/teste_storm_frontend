@@ -14,7 +14,6 @@ export default async function moviesBySearchBar(body, setMovies, setLoading) {
         setLoading(false)
     })
     .catch((err) => {
-      console.log(err)
       setLoading(false)
     });
 }
